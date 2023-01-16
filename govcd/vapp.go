@@ -237,7 +237,7 @@ func addNewVMW(vapp *VApp, name string, vappTemplate VAppTemplate,
 			}
 		}
 	}
-
+	enableGuestOSCustomize := true
 	vAppComposition := &types.ReComposeVAppParams{
 		Ovf:         types.XMLNamespaceOVF,
 		Xsi:         types.XMLNamespaceXSI,
@@ -254,6 +254,7 @@ func addNewVMW(vapp *VApp, name string, vappTemplate VAppTemplate,
 			InstantiationParams: &types.InstantiationParams{
 				GuestCustomizationSection: &types.GuestCustomizationSection{
 					ComputerName: name,
+					Enabled:      &enableGuestOSCustomize,
 				},
 			}, // network config is injected below
 		},
